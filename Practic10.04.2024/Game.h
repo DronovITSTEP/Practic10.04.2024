@@ -1,5 +1,6 @@
 #pragma once
 #include "FuncGame.h"
+#include "File.h"
 
 void printBoard() {
 	for (int i = 0; i < sizeBoard; i++) {
@@ -9,8 +10,15 @@ void printBoard() {
 		cout << endl;
 	}
 }
+void restartBoard() {
+	for (int i = 0; i < sizeBoard; i++) {
+		for (int j = 0; j < sizeBoard; j++) {
+			board[i][j] = '_';
+		}
+	}
+}
 
-void startGame() {
+char* startGame() {
 
 	srand(time(0));
 	int r = rand() % 2;
@@ -23,20 +31,39 @@ void startGame() {
 		if (r) {
 			player.user = x;
 			player.comp = o;
-			if (moveUser()) break;
-			if (moveComputer()) break;
+			if (moveUser())
+			{
+				player.win++;
+				break;
+			}
+			if (moveComputer()) 
+			{
+				player.lose++;
+				break;
+			}
 		}
 		else {
 			player.user = o;
 			player.comp = x;
-			if (moveComputer()) break;
-			if (moveUser()) break;
+			if (moveComputer()) 
+			{
+				player.lose++;
+				break;
+			}
+			if (moveUser())
+			{
+				player.win++;
+				break;
+			}
 		}
 		count++;
 	}
+
+	writeText(player.win, player.lose);
 	printBoard();
-	cout << "Игра закончена!\n";
+	
 	restartBoard();
+	return menu[FINISHED_GAME];
 }
 
 bool moveUser() {
@@ -50,12 +77,12 @@ bool moveUser() {
 		if (board[x - 1][y - 1] == '_')
 			board[x - 1][y - 1] = player.user;
 		else {
-			cout << "Сюда ходить нельзя. Выбери другую позицию\n";
+			cout << errors[ERROR_MOVE];
 			moveUser();
 		}
 	}
 	else{
-		cout << "Неверно указаны координаты. Повторите попытку\n";
+		cout << errors[ERROR_COORDINATE];
 		moveUser();
 	}
 
@@ -109,10 +136,3 @@ bool isWin(char symb) {
 	return false;
 }
 
-void restartBoard() {
-	for (int i = 0; i < sizeBoard; i++) {
-		for (int j = 0; j < sizeBoard; j++) {
-			board[i][j] = '_';
-		}
-	}
-}

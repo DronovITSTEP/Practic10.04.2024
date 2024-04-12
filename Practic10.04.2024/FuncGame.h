@@ -1,12 +1,13 @@
 #pragma once
 #include <iostream>
-#include "FuncGame.h"
 
 using namespace std;
 
 struct Player {
-	char user;
-	char comp;
+	char user = 0;
+	char comp = 0;
+	int win = 0;
+	int lose = 0;
 } player;
 
 const char x = 'X';
@@ -29,7 +30,7 @@ void printBoard();
 /// <summary>
 /// начало игры
 /// </summary>
-void startGame();
+char* startGame();
 /// <summary>
 /// ход пользователя
 /// </summary>

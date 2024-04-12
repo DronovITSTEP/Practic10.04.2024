@@ -32,5 +32,8 @@
     <ClInclude Include="FuncGame.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="FuncFile.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
