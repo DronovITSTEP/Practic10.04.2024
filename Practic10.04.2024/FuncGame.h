@@ -24,6 +24,7 @@ char** board = new char* [sizeBoard]
 
 
 /// <summary> 
+/// проверка кодировки
 ///выводим игровую доску  в консоль с отображением хода игрока и компьютера
 /// </summary>
 void printBoard();
