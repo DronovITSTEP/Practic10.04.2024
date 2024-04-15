@@ -130,6 +130,7 @@
     <ClCompile Include="Practic10.04.2024.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Array.h" />
     <ClInclude Include="File.h" />
     <ClInclude Include="FuncFile.h" />
     <ClInclude Include="FuncGame.h" />

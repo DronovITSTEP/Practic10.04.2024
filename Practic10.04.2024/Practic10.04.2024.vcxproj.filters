@@ -26,14 +26,17 @@
     <ClInclude Include="Game.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="File.h">
+    <ClInclude Include="FuncGame.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="FuncGame.h">
+    <ClInclude Include="File.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
     <ClInclude Include="FuncFile.h">
       <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Array.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

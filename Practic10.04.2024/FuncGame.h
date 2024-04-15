@@ -1,5 +1,8 @@
 #pragma once
 #include <iostream>
+#include "Array.h"
+#include "FuncFile.h"
+
 
 using namespace std;
 

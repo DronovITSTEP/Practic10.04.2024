@@ -1,6 +1,5 @@
 #pragma once
 #include "FuncGame.h"
-#include "File.h"
 
 void printBoard() {
 	for (int i = 0; i < sizeBoard; i++) {
@@ -100,38 +99,31 @@ bool moveComputer() {
 }
 
 bool isWin(char symb) {
-	int count = 0;
+	int countRow = 0;
+	int countCol = 0;
 
-	// проверка по строкам
+	// проверка по строкам и столбцам
 	for (int i = 0; i < sizeBoard; i++) {
-		count = 0;
+		countRow = 0;
+		countCol = 0;
 		for (int j = 0; j < sizeBoard; j++) {
-			if (symb == board[i][j]) count++;
+			if (symb == board[i][j]) countRow++;
+			if (symb == board[j][i]) countCol++;
 		}
-		if (count == 3) return true;
+		if (countRow == 3) return true;
+		if (countCol == 3) return true;
 	}
 
-	// проверка по столбцам
-	for (int i = 0; i < sizeBoard; i++) {
-		count = 0;
-		for (int j = 0; j < sizeBoard; j++) {
-			if (symb == board[j][i]) count++;
-		}
-		if (count == 3) return true;
-	}
 
 	// проверка по диагоналям
-	count = 0;
-	for (int i = 0, j = 0; i < sizeBoard; i++, j++) {
-		if (symb == board[j][i]) count++;
+	int count1 = 0;
+	int count2 = 0;
+	for (int i = 0, j = sizeBoard-1; i < sizeBoard; i++, j--) {
+		if (symb == board[i][i]) count1++;
+		if (symb == board[i][j]) count2++;
 	}
-	if (count == 3) return true;
-
-	count = 0;
-	for (int i = sizeBoard - 1, j = 0; j < sizeBoard; i--, j++) {
-		if (symb == board[j][i]) count++;
-	}
-	if (count == 3) return true;
+	if (count1 == 3) return true;
+	if (count2 == 3) return true;
 
 	return false;
 }

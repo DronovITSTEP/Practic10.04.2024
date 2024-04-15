@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "Array.h"
 
 FILE* file = nullptr;
 const char path[25] = "tournament.bin";
